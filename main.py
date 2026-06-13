@@ -11,13 +11,13 @@ load_dotenv()
 
 # --- Configuration ---
 PORT = int(os.getenv("PORT", "8080"))
-DOMAIN = os.getenv("NGROK_URL") 
+DOMAIN = os.getenv("RENDER_EXTERNAL_HOSTNAME") or os.getenv("NGROK_URL")
 if not DOMAIN:
-    raise ValueError("NGROK_URL environment variable not set.")
+    raise ValueError("DOMAIN environment variable not set.")
 WS_URL = f"wss://{DOMAIN}/ws"
 
 # Updated greeting to reflect the new model
-WELCOME_GREETING = "Hi! I am a voice assistant powered by Twilio and Google Gemini. Ask me anything!"
+WELCOME_GREETING = "Namaste! Main Ravya hoon, Hitsar Shah ki virtual assistant, Raveendra J Shah and Co. se. Hitsar abhi available nahi hain. Aap ka naam kya hai aur main aapki kya madad kar sakti hoon?"
 
 # System prompt for Gemini
 # Gemini works well with a direct instruction like this.
